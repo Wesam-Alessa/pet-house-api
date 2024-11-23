@@ -1,0 +1,1 @@
+{"level":"error","message":"Failed connection with database server :Error: querySrv ENOTFOUND _mongodb._tcp.mydatabasecluster.um6hyhw.mongodb.net","service":"user-service","timestamp":"2024-11-23T14:50:55.352Z"}
