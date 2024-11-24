@@ -9,7 +9,7 @@ const storage = multer.memoryStorage();
 const apiConsts = require('../../core/api_const') ;
 
 const _ = require("lodash");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const middlewareAuth = require("../../middleware/auth");
 
 

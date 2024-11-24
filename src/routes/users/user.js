@@ -7,7 +7,7 @@ const {Food} = require('../../models/foods/pet_food');
 const middlewareAuth = require("../../middleware/auth");
 const userController = require("../../controllers/user_controller");
 const _ = require("lodash");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const formidable= require('formidable');
 
 // const multer = require('multer');
