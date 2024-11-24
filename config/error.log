@@ -1,1 +1,2 @@
 {"level":"error","message":"Failed connection with database server :Error: querySrv ENOTFOUND _mongodb._tcp.mydatabasecluster.um6hyhw.mongodb.net","service":"user-service","timestamp":"2024-11-23T14:50:55.352Z"}
+{"level":"error","message":"Failed connection with database server :MongooseError: The `uri` parameter to `openUri()` must be a string, got \"object\". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.","service":"user-service","timestamp":"2024-11-24T11:37:30.172Z"}

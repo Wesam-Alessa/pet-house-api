@@ -30,15 +30,18 @@ var corsOptions = {
     origin:"http://127.0.0.1:8000"
   };
   mongoose.set("strictQuery", false);
-  mongoose.connect(
-    apiConsts.MONGODB_URI,
+  mongoose.connect('mongodb+srv://wesamalessa53:wesam@cluster0.pl844.mongodb.net/pet_house?retryWrites=true&w=majority',
+    //apiConsts.MONGODB_URI,
     {
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
-    dbName:apiConsts.DBNAME,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000, // وقت المهلة عند اختيار السيرفر
+    // useNewUrlParser:true,
+    // useUnifiedTopology:true,
+    // dbName:apiConsts.DBNAME,
  }).then(()=>console.log("Connected"))
  .catch((e)=>logger.error("Failed connection with database server :" + e ));
-  
+  //console.log
  cloudinary.config({
    cloud_name: apiConsts.CLOUDINARY_NAME,
    api_key: apiConsts.CLOUDINARY_API_KEY,
@@ -77,8 +80,8 @@ app.all("*",(req,res,next)=>{
  
  //app.listen(apiConsts.PORT,()=>logger.info('App warking on port 8000'));
 
-const server =  app.listen(process.env.PORT || apiConsts.PORT,()=>logger.info('App warking on port 8000'));
-
+const server =  app.listen(process.env.PORT || apiConsts.PORT,()=>logger.info('App warking on port ' + process.env.PORT));
+//console.log
 const io = require("socket.io")(server,{
     pingTimeout:60000,
     cors:{
