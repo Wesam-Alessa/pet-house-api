@@ -14,7 +14,7 @@ const petTools = require('./src/routes/tools/pet_tools');
 const petFoods = require('./src/routes/foods/pet_foods');
 const foodsCategory = require('./src/routes/foods/pet_food_categories');
 const petSplash = require('./src/routes/pet_splash/pet_splash');
-const logger = require('./src/config/logger');
+//const logger = require('./src/config/logger');
 const auth = require('./src/routes/users/auth');
 const user = require('./src/routes/users/user');
 const rights = require('./src/routes/rights/Intellectual_property_rights');
@@ -30,8 +30,8 @@ var corsOptions = {
     origin:"http://127.0.0.1:8000"
   };
   mongoose.set("strictQuery", false);
-  mongoose.connect('mongodb+srv://wesamalessa53:wesam@cluster0.pl844.mongodb.net/pet_house?retryWrites=true&w=majority',
-    //apiConsts.MONGODB_URI,
+  mongoose.connect(
+    apiConsts.MONGODB_URI,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -40,8 +40,8 @@ var corsOptions = {
     // useUnifiedTopology:true,
     // dbName:apiConsts.DBNAME,
  }).then(()=>console.log("Connected"))
- .catch((e)=>logger.error("Failed connection with database server :" + e ));
-  //console.log
+ .catch((e)=>console.log("Failed connection with database server :" + e ));
+  //logger.error
  cloudinary.config({
    cloud_name: apiConsts.CLOUDINARY_NAME,
    api_key: apiConsts.CLOUDINARY_API_KEY,
@@ -80,8 +80,8 @@ app.all("*",(req,res,next)=>{
  
  //app.listen(apiConsts.PORT,()=>logger.info('App warking on port 8000'));
 
-const server =  app.listen(process.env.PORT || apiConsts.PORT,()=>logger.info('App warking on port ' + process.env.PORT));
-//console.log
+const server =  app.listen(process.env.PORT || apiConsts.PORT,()=>console.log('App warking on port ' + process.env.PORT));
+//logger.info
 const io = require("socket.io")(server,{
     pingTimeout:60000,
     cors:{
