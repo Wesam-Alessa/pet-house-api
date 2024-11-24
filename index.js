@@ -77,7 +77,7 @@ app.all("*",(req,res,next)=>{
  
  //app.listen(apiConsts.PORT,()=>logger.info('App warking on port 8000'));
 
-const server =  app.listen(apiConsts.PORT,()=>logger.info('App warking on port 8000'));
+const server =  app.listen(process.env.PORT || apiConsts.PORT,()=>logger.info('App warking on port 8000'));
 
 const io = require("socket.io")(server,{
     pingTimeout:60000,
